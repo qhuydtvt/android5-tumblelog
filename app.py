@@ -11,7 +11,7 @@ class Post(Document):
     def to_json(self):
         return {"title": self.title, "content":self.content}
 
-@app.route('/')
+@app.route('/',methods=["GET", "POST"])
 def hello_world():
     return jsonify([post.to_json() for post in Post.objects])
 
