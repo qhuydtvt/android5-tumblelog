@@ -16,7 +16,7 @@ def hello_world():
     if request.method == "GET":
         return jsonify([post.to_json() for post in Post.objects])
     elif request.method == "POST":
-        form = request.form
+        form = request.get_json()
         title_value = form["title"]
         content_value = form["content"]
 
