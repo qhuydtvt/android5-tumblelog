@@ -26,6 +26,7 @@ def hello_world():
         return jsonify({"code": 1, "message": "OK"})
 
 @app.route('/api/login', methods=["POST"])
+def login():
     if request.method == "POST":
         json_data = request.get_json()
         username = json_data["username"]
