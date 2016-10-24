@@ -25,6 +25,15 @@ def hello_world():
 
         return jsonify({"code": 1, "message": "OK"})
 
+@app.route('/api/login', methods=["POST"])
+    if request.method == "POST":
+        json_data = request.get_json()
+        username = json_data["username"]
+        password = json_data["password"]
+        if username == "techkids" and password == "codethechange":
+            return jsonify({"code": 1, "message": "Logged in"})
+        else:
+            return jsonify({"code": 0, "message": "Failed to login"})
 
 if __name__ == '__main__':
     app.run()
